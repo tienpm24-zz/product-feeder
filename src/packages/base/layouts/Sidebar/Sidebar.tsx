@@ -1,32 +1,30 @@
 import './Sidebar.sass';
-import React from 'react';
+import 'react-input-range/lib/css/index.css';
 
-const Sidebar = () => {
+import React, { useState } from 'react';
+
+import InputRange from 'react-input-range';
+
+const Sidebar: React.FC = () => {
+  const [value, setValue] = useState({ min: 250, max: 800 });
+
   return (
     <>
       <div className='sidebar'>
-        <h3>Shop by Price</h3>
-        <div className='left-menu'>
-          <label className='checkbox'>
-            <input type='checkbox' /> <span className='label'>$0 - $25</span>
-          </label>
-
-          <label className='checkbox'>
-            <input type='checkbox' /> <span className='label'>$25 - $50</span>
-          </label>
-
-          <label className='checkbox'>
-            <input type='checkbox' /> <span className='label'>$50 - $100</span>
-          </label>
-
-          <label className='checkbox'>
-            <input type='checkbox' /> <span className='label'>$100 - $150</span>
-          </label>
-
-          <label className='checkbox'>
-            <input type='checkbox' /> <span className='label'>Over $15</span>
-          </label>
+        <h3>FILTER SELECTION</h3>
+        <span className='label'>PRICE</span>
+        <div className='slider'>
+          <InputRange
+            maxValue={1000}
+            minValue={0}
+            formatLabel={(value) => `${value} $`}
+            value={value}
+            onChange={(value) => console.log(value)}
+          />
         </div>
+        <span className='range'>
+          Range: ${value.min} - ${value.max}
+        </span>
       </div>
     </>
   );

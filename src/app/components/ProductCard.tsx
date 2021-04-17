@@ -24,12 +24,11 @@ export const ProductCard = ({name, currency, price, picture, viewItemURL}: Produ
 const CardWrapper = styled.div`
   padding: 30px;
   width: 28%;
-  flex: 1 0 auto;
   @media (max-width: 1400px) {
-    width: 40%;
+    width: 38%;
   }
-  @media (max-width: 720px) {
-    width: 100%;
+  @media (max-width: 920px) {
+    width: 86%;
   }
 `
 

@@ -2,16 +2,17 @@ import React from 'react'
 import styled, {createGlobalStyle} from 'styled-components'
 import { searchProducts } from '../api/product'
 import { useSearch } from '../core/hooks/useSearch'
-import { Searchbar } from './components/Searchbar'
+import { Header } from './components/Header'
 import { ProductList } from './components/ProductList'
 
 export const App = () => {
   const { search, inputText, setInputText } = useSearch(searchProducts)
+  const products = search.result || []
   return (
     <Wrapper>
       <GlobalStyle />
-      <Searchbar inputText={inputText} setInputText={setInputText} />
-      <ProductList products={search.result} loading={search.loading} errorMessage={search?.error?.message}/>
+      <Header products={products} searchText={inputText} setSearchtext={setInputText} errorMessage={search?.error?.message}  />
+      <ProductList products={products} loading={search.loading} />
     </Wrapper>
   )
 }

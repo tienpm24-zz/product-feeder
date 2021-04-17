@@ -1,0 +1,47 @@
+
+.input-group
+    position: relative
+    margin: auto 0
+    max-width: 300px
+    width: 300px
+
+    .search
+        position: relative
+        visibility: visible
+        background: #f3f3f3
+        cursor: text
+        color: #333
+        padding: 10px 50px 10px 44px
+        border-radius: 100px
+        height: 20px
+        border: 0
+        font-weight: 500
+        font-size: 16px
+        line-height: 1.5
+        &:focus
+            outline: none
+
+    .pre-search-btn
+        position: absolute
+        top: 2px
+        left: 0px
+        padding: 6px 8px
+        align-items: center
+        border-radius: 100px
+        background: transparent
+        outline: 0
+        cursor: pointer
+        border: none
+        border-width: 2px
+        transition: 0.4s
+        &:focus
+            outline: none
+        &:hover
+            background: lightgray
+
+    .ripple
+        overflow: hidden
+
+    .pre-search-input-icon
+        height: 24px
+        width: 24px

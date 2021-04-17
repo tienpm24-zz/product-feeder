@@ -5,23 +5,28 @@ const Sidebar = () => {
   return (
     <>
       <div className='sidebar'>
-        <ul className='left-menu'>
-          <li>
-            <div className='items'>
-              <span>Menu 1</span>
-            </div>
-          </li>
-          <li>
-            <div className='items'>
-              <span>Menu 2</span>
-            </div>
-          </li>
-          <li>
-            <div className='items'>
-              <span>Menu 3</span>
-            </div>
-          </li>
-        </ul>
+        <h3>Shop by Price</h3>
+        <div className='left-menu'>
+          <label className='checkbox'>
+            <input type='checkbox' /> <span className='label'>$0 - $25</span>
+          </label>
+
+          <label className='checkbox'>
+            <input type='checkbox' /> <span className='label'>$25 - $50</span>
+          </label>
+
+          <label className='checkbox'>
+            <input type='checkbox' /> <span className='label'>$50 - $100</span>
+          </label>
+
+          <label className='checkbox'>
+            <input type='checkbox' /> <span className='label'>$100 - $150</span>
+          </label>
+
+          <label className='checkbox'>
+            <input type='checkbox' /> <span className='label'>Over $15</span>
+          </label>
+        </div>
       </div>
     </>
   );

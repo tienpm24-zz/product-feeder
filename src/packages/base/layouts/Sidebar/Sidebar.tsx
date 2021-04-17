@@ -19,7 +19,7 @@ const Sidebar: React.FC = () => {
             minValue={0}
             formatLabel={(value) => `${value} $`}
             value={value}
-            onChange={(value) => console.log(value)}
+            onChange={(value) => setValue(value)}
           />
         </div>
         <span className='range'>

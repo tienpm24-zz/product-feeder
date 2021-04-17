@@ -1,5 +1,5 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -22,7 +22,6 @@ module.exports = {
           },
         ],
       },
-
       {
         test: /\.html$/,
         use: [
@@ -31,14 +30,24 @@ module.exports = {
           },
         ],
       },
-
       {
-        test: /\.(svg|png|jpg?e|gif)$/i,
+        test: /\.svg$/,
+        include: path.resolve(__dirname, '../'),
+        use: [
+          {
+            loader: 'raw-loader',
+            options: {
+              esModule: false,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpg?e|gif)$/i,
         use: {
           loader: 'file-loader',
           options: {
-            name: '[name].[hash].[ext]',
-            outputPath: 'imgs',
+            esModule: false,
           },
         },
       },
@@ -64,4 +73,4 @@ module.exports = {
       },
     },
   },
-};
+}

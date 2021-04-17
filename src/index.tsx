@@ -1,10 +1,6 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import '@babel/polyfill'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import { App } from './app'
 
-ReactDOM.render(
-  <>
-    <div>Hi there, From Vietken Tech with love</div>
-  </>,
-
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'))

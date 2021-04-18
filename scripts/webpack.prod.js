@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const config = require('./webpack.config')
 const { merge } = require('webpack-merge')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -11,7 +12,14 @@ module.exports = merge(config, {
     path: path.resolve(__dirname, 'dist'),
   },
 
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
+  ],
 
   optimization: {
     minimizer: [new TerserPlugin()],

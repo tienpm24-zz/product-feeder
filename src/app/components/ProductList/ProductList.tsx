@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { ProductCard } from './ProductCard'
-import { LoadingIndicator } from './LoadingIndicator'
-import { ProductFilterContext, ProductSearchContext } from '../index'
+
+import { ProductCard } from '../ProductCard/ProductCard'
+import { LoadingIndicator } from '../LoadingIndicator/LoadingIndicator'
+import { ProductSearchContext } from '../ProductSearchbar/context'
+import { ProductFilterContext } from '../../pages/ProductSearch/ProductSearch'
 
 export const ProductList = () => {
   const {isLoading, errorMessage, searchText} = useContext(ProductSearchContext)

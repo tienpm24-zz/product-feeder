@@ -1,3 +1,4 @@
+import config from 'config'
 import { useRef, useState } from 'react'
 import { useAsyncAbortable } from 'react-async-hook'
 import AwesomeDebouncePromise from 'awesome-debounce-promise'
@@ -8,7 +9,7 @@ export const useSearch = (callApi: SearchAsyncFunction) => {
   const [inputText, setInputText] = useState('')
 
   const debouncedSearch = useRef<typeof callApi>(
-    AwesomeDebouncePromise(callApi, 300)
+    AwesomeDebouncePromise(callApi, config.debounce)
   )
 
   const search = useAsyncAbortable(

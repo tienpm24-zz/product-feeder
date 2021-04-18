@@ -8,7 +8,6 @@ export const formatProducts = (products: any[]):Product[] => {
     viewItemURL: viewItemURL[0],
     picture: galleryURL?galleryURL[0]:null,
     category: primaryCategory[0].categoryName[0],
-    // @ts-ignore
     currency: Currency[sellingStatus[0].convertedCurrentPrice[0]['@currencyId']]
   }))
 }

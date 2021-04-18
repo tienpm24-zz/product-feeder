@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 
 type IconProps = {
@@ -9,7 +9,7 @@ type IconProps = {
   className?: string
 }
 
-export const Icon = ({ source, height, width, fill, className, ...props }:IconProps) => {
+export const Icon: FC<IconProps> = ({ source, height, width, fill, className, ...props }) => {
   return (
     <IconSource
       className={className}

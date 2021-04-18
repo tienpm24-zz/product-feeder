@@ -1,18 +1,18 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { Product } from '../../core/utils/types'
-import { Icon } from './Icon'
+import { Product } from '../../utils/types'
+import { Icon } from '../Icon/Icon'
 
 export const ProductCard = ({name, currency, price, picture, viewItemURL}: Product) => {
   return ( 
     <CardWrapper>
       <Card>
-        <Image src={picture || require('../../assets/default-image.png')} />
+        <Image src={picture || require('../../../assets/default-image.png')} />
         <Details>
           <Title>{name}</Title>
           <Price>{currency+price.toFixed(2).split('.')[0]}<span>.{price.toFixed(2).split('.')[1]}</span></Price>
           <ViewButton href={viewItemURL} target='_blank'>
-            <ViewIcon source={require('../../assets/visible.svg')}/>
+            <ViewIcon source={require('../../../assets/visible.svg')}/>
             <p>View</p>
           </ViewButton>
         </Details>

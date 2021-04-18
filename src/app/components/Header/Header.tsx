@@ -1,7 +1,8 @@
-import React, { useContext }  from 'react'
+import React  from 'react'
 import styled from 'styled-components'
-import { FilterButton } from './FilterButton'
-import { Searchbar } from './Searchbar'
+import { FilterButton } from '../FilterButton/FilterButton'
+import { Searchbar } from '../ProductSearchbar/ProductSearchbar'
+
 
 export const Header = () => {
   return (

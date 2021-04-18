@@ -1,15 +1,15 @@
 import React, {useContext} from 'react'
 import styled from 'styled-components'
-import { Icon } from './Icon'
-import { SidebarContext } from '../index'
+import { Icon } from '../Icon/Icon'
+import { SidebarContext } from '../Sidebar/context'
+
 
 export const FilterButton = () => {
   const { isSidebarOpen, setSidebar } = useContext(SidebarContext)
   return (
-    //@ts-ignore
     <Button onClick={() => setSidebar((prevState) => !prevState)}>
       <p>{`${isSidebarOpen ? 'Hide' : 'Show'} Filter`}</p>
-      <FilterIcon source={require('../../assets/sorting_options.svg')} />
+      <FilterIcon source={require('../../../assets/sorting_options.svg')} />
     </Button>
   )
 }

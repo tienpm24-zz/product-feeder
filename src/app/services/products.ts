@@ -1,5 +1,6 @@
-import { formatProducts } from "../core/utils/helper"
-import { Product } from "../core/utils/types"
+import { formatProducts } from "../utils/helper"
+import { Product } from "../utils/types"
+
 
 export const searchProducts = async (
   text: string,
@@ -16,6 +17,5 @@ export const searchProducts = async (
   }
   const json = await result.json()
   const products = json.findItemsByKeywordsResponse[0].searchResult[0]?.item || [] 
-  console.log(products)
   return formatProducts(products)
 }

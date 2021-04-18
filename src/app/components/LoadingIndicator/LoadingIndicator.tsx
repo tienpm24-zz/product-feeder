@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
-import { Icon } from './Icon'
+import { Icon } from '../Icon/Icon'
 
 type LoadingIndicatorProps = {
   height: string;
 }
 
-export const LoadingIndicator = ({height}: LoadingIndicatorProps) => {
+export const LoadingIndicator: FC<LoadingIndicatorProps> = ({height}) => {
   return (
     <Wrapper>
       <LoadingIcon
         width='200px'
         height={height || '200px'}
-        source={require('../../assets/loading.svg')}
+        source={require('../../../assets/loading.svg')}
       />
     </Wrapper>
   )

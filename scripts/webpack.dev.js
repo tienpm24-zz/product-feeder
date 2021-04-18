@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const config = require('./webpack.config')
 const { merge } = require('webpack-merge')
 
@@ -8,7 +9,13 @@ module.exports = merge(config, {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
-
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
+  ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,

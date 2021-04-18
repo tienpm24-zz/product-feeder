@@ -7,7 +7,9 @@ module.exports = {
   },
 
   resolve: {
-    alias: {},
+    alias: {
+      config: path.resolve(__dirname, '../src/environments/'),
+    },
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 

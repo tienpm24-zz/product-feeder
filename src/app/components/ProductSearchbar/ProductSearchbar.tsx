@@ -1,7 +1,7 @@
 // import './SearchBar.sass'
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { ProductSearchContext } from '../index'
+import { ProductSearchContext } from './context'
 
 export const Searchbar = ({...props}) => {
   const { searchText, setSearchtext } = useContext(ProductSearchContext)

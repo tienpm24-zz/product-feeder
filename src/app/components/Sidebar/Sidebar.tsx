@@ -1,8 +1,8 @@
 // import './Sidebar.sass'
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { SidebarContext } from '../index'
-import { PriceRangePicker } from './PriceRangePicker'
+import { PriceRangePicker } from '../PriceRangePicker/PriceRangePicker'
+import { SidebarContext } from './context'
 
 export const Sidebar = () => {
   const {isSidebarOpen} = useContext(SidebarContext)

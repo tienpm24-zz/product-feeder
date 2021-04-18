@@ -4,6 +4,7 @@ import { searchProducts } from '../api/product'
 import { useSearch } from '../core/hooks/useSearch'
 import { Header } from './components/Header'
 import { ProductList } from './components/ProductList'
+import Sidebar from './components/Sidebar'
 
 export const App = () => {
   const { search, inputText, setInputText } = useSearch(searchProducts)
@@ -11,9 +12,12 @@ export const App = () => {
   return (
     <Wrapper>
       <GlobalStyle />
-      <Header products={products} searchText={inputText} setSearchtext={setInputText} errorMessage={search?.error?.message}  />
-      <ProductList products={products} loading={search.loading} />
-    </Wrapper>
+      <Header searchText={inputText} setSearchtext={setInputText} />
+      <Content>
+        <Sidebar />
+        <ProductList products={products} loading={search.loading}  searchText={inputText} errorMessage={search?.error?.message}  />
+      </Content>
+    </Wrapper> 
   )
 }
 
@@ -37,7 +41,13 @@ const GlobalStyle = createGlobalStyle`
 
 const Wrapper = styled.div`
   height: 100%;
+  display: flex;
+  flex-direction: column;
   a {
     color: #333333;
   }
+`
+
+const Content = styled.div`
+  display: flex;
 `

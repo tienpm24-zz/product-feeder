@@ -22,30 +22,29 @@ export const PriceRangePicker = () => {
   const filterProducts = (value: Range) => setFilteredProducts(products.filter(({price}) => price >= value.min && price <= value.max))
 
   const onPriceRangeChange = async (value: Range) => {
-    await setPickedRange(value)
-    if(products.length > 0) {
-      await filterProducts(value)
+    if(range.max >= value.max){
+      await setPickedRange(value)
+      if(products.length > 0) {
+        await filterProducts(value)
+      }
     }
   }
 
   useEffect(() => {
-    async function onProductsChange(maxValue: number) {
-      let oldMaxValue
-      await setRange((prevState) => {
-        oldMaxValue = prevState.max
-        return {...prevState, max: maxValue}
-      })
-      const newCurrentMaxValue = pickedRange.max === oldMaxValue || pickedRange.max > maxValue ? maxValue : pickedRange.max
-      let newCurrentMinValue
-      await setPickedRange((prevState) => {
-        newCurrentMinValue = prevState.min >= newCurrentMaxValue ? 0 : prevState.min
-        return {min: newCurrentMinValue, max: newCurrentMaxValue}
-      })
-      await filterProducts({min: newCurrentMinValue, max: newCurrentMaxValue})
+    async function onProductsChange() {
+      const maxValue = Math.max.apply(Math, products.map((p)=>p.price))
+      console.log(range.max, pickedRange.max, maxValue)
+      if(maxValue > range.max){
+        await setRange({min: 0, max: maxValue})
+        await setPickedRange({min: 0, max: maxValue})
+      } else {
+        await setPickedRange({min: 0, max: maxValue})
+        await setRange({min: 0, max: maxValue})
+      }
+      setFilteredProducts(products)
     }
     if(products.length > 0) {
-      const maxValue = Math.max.apply(Math, products.map((p)=>p.price))
-      onProductsChange(maxValue)
+      onProductsChange()
     } else if (prevProducts && products.length === 0 && prevProducts.length !== 0) {
       setFilteredProducts([])
     }

@@ -1,32 +1,25 @@
 .sidebar-wrapper
     width: 25%
     padding: 20px
+    overflow: hidden
+    transition: 0.5s
+    white-space: nowrap
     border-right: #ddd solid 1px
     flex: 0 0 auto
-    @media ( max-width: 920px )
+    @media (max-width: 920px)
         width: 80%
-    h3
+
+    .sidebar-title
         padding-bottom: 20px
         border-bottom: 1px dashed #cccccc
-    .label
-        font-weight: 600
-        margin-bottom: 10px
-    .slider
-        margin: 20px 0
-    .input-range__slider
-        background-color: #cccccc
-        background-image: none
-        border: none
-        border-radius: 10px
-        height: 27px
-        margin-left: 0
-        top: -5px
-        width: 3px
-        &:active
-            background-color: #555
-    .input-range__track
-        background-color: #e4e3e3
-    .input-range__track--active
-        background: #555
-    .input-range__label-container
-        display: none
+
+.sidebar-hidden
+    width: 0px
+    padding: 20px 0px
+    overflow: hidden
+    transition: 0.5s
+    white-space: nowrap
+    border-right: #ddd solid 1px
+    flex: 0 0 auto
+    @media (max-width: 920px)
+        width: 0px

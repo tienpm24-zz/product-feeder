@@ -1,15 +1,22 @@
-import React, { FC } from 'react'
-import styled from 'styled-components'
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
 type IconProps = {
-  source: string,
-  height?: string,
-  width?:string,
-  fill?: string,
-  className?: string
-}
+  source: string;
+  height?: string;
+  width?: string;
+  fill?: string;
+  className?: string;
+};
 
-export const Icon: FC<IconProps> = ({ source, height, width, fill, className, ...props }) => {
+export const Icon: FC<IconProps> = ({
+  source,
+  height,
+  width,
+  fill,
+  className,
+  ...props
+}) => {
   return (
     <IconSource
       className={className}
@@ -19,10 +26,14 @@ export const Icon: FC<IconProps> = ({ source, height, width, fill, className, ..
       dangerouslySetInnerHTML={{ __html: source }}
       {...props}
     />
-  )
-}
+  );
+};
 
-const IconSource = styled('div')<{height: string, width: string, fill: string}>`
+const IconSource = styled('div')<{
+  height: string;
+  width: string;
+  fill: string;
+}>`
   line-height: 0;
   svg {
     height: ${(props) => props.height};
@@ -31,4 +42,4 @@ const IconSource = styled('div')<{height: string, width: string, fill: string}>`
   path {
     fill: ${(props) => props.fill};
   }
-`
+`;

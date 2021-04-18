@@ -6,7 +6,7 @@ export enum Currency {
 export type Product = {
   id: string
   name: string,
-  price: string,
+  price: number,
   viewItemURL?: string,
   currency: Currency,
   category?: string,

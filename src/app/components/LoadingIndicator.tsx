@@ -2,7 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Icon } from './Icon'
 
-export const LoadingIndicator = (height) => {
+type LoadingIndicatorProps = {
+  height: string;
+}
+
+export const LoadingIndicator = ({height}: LoadingIndicatorProps) => {
   return (
     <Wrapper>
       <LoadingIcon

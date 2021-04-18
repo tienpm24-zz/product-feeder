@@ -1,7 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const Icon = ({ source, height, width, fill, className, ...props }) => {
+type IconProps = {
+  source: string,
+  height?: string,
+  width?:string,
+  fill?: string,
+  className?: string
+}
+
+export const Icon = ({ source, height, width, fill, className, ...props }:IconProps) => {
   return (
     <IconSource
       className={className}
@@ -14,7 +22,7 @@ export const Icon = ({ source, height, width, fill, className, ...props }) => {
   )
 }
 
-const IconSource = styled.div`
+const IconSource = styled('div')<{height: string, width: string, fill: string}>`
   line-height: 0;
   svg {
     height: ${(props) => props.height};

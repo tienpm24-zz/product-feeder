@@ -1,20 +1,17 @@
 // import './SearchBar.sass'
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { ProductSearchContext } from '../index'
 
-type SearchbarProps = {
-  inputText: string,
-  setInputText: React.Dispatch<React.SetStateAction<string>>
-}
-
-export const Searchbar = ({inputText, setInputText, ...props}: SearchbarProps) => {
+export const Searchbar = ({...props}) => {
+  const { searchText, setSearchtext } = useContext(ProductSearchContext)
   return (
     <Wrapper className='searchbar-wrapper' {...props}>
       <Input 
         className='searchbar-input' 
         type='text' 
-        value={inputText} 
-        onChange={e => setInputText(e.target.value)}
+        value={searchText} 
+        onChange={e => setSearchtext(e.target.value)}
         placeholder="Search products" 
       />
       <SearchButton

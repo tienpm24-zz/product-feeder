@@ -1,19 +1,13 @@
-import React from 'react'
+import React, { useContext }  from 'react'
 import styled from 'styled-components'
 import { FilterButton } from './FilterButton'
-import { Icon } from './Icon'
 import { Searchbar } from './Searchbar'
 
-type HeaderProps = {
-  searchText: string,
-  setSearchtext: any
-}
-
-export const Header = ({searchText, setSearchtext}: HeaderProps) => {
+export const Header = () => {
   return (
     <Wrapper>
-      <FilterButton />
-      <ProductSearchbar inputText={searchText} setInputText={setSearchtext} />
+      <FilterButton/>
+      <ProductSearchbar />
     </Wrapper>
   )
 }

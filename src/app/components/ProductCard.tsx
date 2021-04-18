@@ -10,9 +10,9 @@ export const ProductCard = ({name, currency, price, picture, viewItemURL}: Produ
         <Image src={picture || require('../../assets/default-image.png')} />
         <Details>
           <Title>{name}</Title>
-          <Price>{currency+price.split('.')[0]}<span>.{price.split('.')[1]}</span></Price>
+          <Price>{currency+price.toFixed(2).split('.')[0]}<span>.{price.toFixed(2).split('.')[1]}</span></Price>
           <ViewButton href={viewItemURL} target='_blank'>
-            <ViewIcon dangerouslySetInnerHTML={{ __html: require('../../assets/visible.svg') }}/>
+            <ViewIcon source={require('../../assets/visible.svg')}/>
             <p>View</p>
           </ViewButton>
         </Details>

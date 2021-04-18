@@ -1,20 +1,15 @@
-import React from 'react'
-import { Product } from '../../core/utils/types'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { ProductCard } from './ProductCard'
 import { LoadingIndicator } from './LoadingIndicator'
+import { ProductFilterContext, ProductSearchContext } from '../index'
 
-type ProductListProps = {
-  loading: boolean,
-  products: Product[],
-  searchText: string,
-  errorMessage: string
-}
-
-export const ProductList = ({loading, products, errorMessage, searchText}: ProductListProps) => {
+export const ProductList = () => {
+  const {isLoading, errorMessage, searchText} = useContext(ProductSearchContext)
+  const {filteredProducts: products} = useContext(ProductFilterContext)
   let title
   switch (true) {
-    case loading:
+    case isLoading:
        title = ""
       break
     case errorMessage?true:false:
@@ -32,8 +27,8 @@ export const ProductList = ({loading, products, errorMessage, searchText}: Produ
     default:
       title = ''
   }
-  if(loading) {
-    return <LoadingIndicator height='100%'/>
+  if(isLoading) {
+    return   <Wrapper><LoadingIndicator height='100%'/></Wrapper>
   }
   return (
     <Wrapper>

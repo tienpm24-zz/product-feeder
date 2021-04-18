@@ -36,13 +36,17 @@ export const PriceRangePicker = () => {
         return {...prevState, max: maxValue}
       })
       const newCurrentMaxValue = pickedRange.max === oldMaxValue || pickedRange.max > maxValue ? maxValue : pickedRange.max
-      await setPickedRange((prevState) => ({min: prevState.min >= newCurrentMaxValue ? 0: prevState.min, max: newCurrentMaxValue,}))
-      await filterProducts({min: pickedRange.min, max: newCurrentMaxValue})
+      let newCurrentMinValue
+      await setPickedRange((prevState) => {
+        newCurrentMinValue = prevState.min >= newCurrentMaxValue ? 0 : prevState.min
+        return {min: newCurrentMinValue, max: newCurrentMaxValue}
+      })
+      await filterProducts({min: newCurrentMinValue, max: newCurrentMaxValue})
     }
     if(products.length > 0) {
       const maxValue = Math.max.apply(Math, products.map((p)=>p.price))
       onProductsChange(maxValue)
-    } else if (!prevProducts || (products.length === 0 && prevProducts.length !== 0)) {
+    } else if (prevProducts && products.length === 0 && prevProducts.length !== 0) {
       setFilteredProducts([])
     }
   }, [products])

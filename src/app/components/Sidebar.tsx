@@ -5,6 +5,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import RangeSlider from 'react-input-range'
 import styled from 'styled-components'
 import { ProductFilterContext, ProductSearchContext, SidebarContext } from '../index'
+import { usePrevious } from '../../core/hooks/usePrevious'
 
 type Range = {
   min: number,
@@ -17,7 +18,8 @@ export const Sidebar = () => {
   const {setFilteredProducts} = useContext(ProductFilterContext)
   const [range, setRange] = useState({ min: 0, max: 1000 })
   const [pickedRange, setPickedRange] = useState({ min: 0, max: 1000 })
-  
+  const prevProducts = usePrevious(products);
+
   const filterProducts = (value: Range) => setFilteredProducts(products.filter(({price}) => price >= value.min && price <= value.max))
 
   const onPriceRangeChange = async (value: Range) => {
@@ -41,6 +43,8 @@ export const Sidebar = () => {
     if(products.length > 0) {
       const maxValue = Math.max.apply(Math, products.map((p)=>p.price))
       onProductsChange(maxValue)
+    } else if (!prevProducts || (products.length === 0 && prevProducts.length !== 0)) {
+      setFilteredProducts([])
     }
   }, [products])
 

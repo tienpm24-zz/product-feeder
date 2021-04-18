@@ -1,0 +1,83 @@
+@keyframes ShowAnimation
+    0%
+        opacity: 0
+        transform: translateY(-20px)
+
+    100%
+        opacity: 1
+
+.card-wrapper
+    padding: 30px
+    width: 28%
+    @media (max-width: 1400px)
+        width: 38%
+
+    @media (max-width: 920px)
+        width: 86%
+
+    .card
+        padding: 4px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        border: 1px solid #ddd
+        border-radius: 4px
+        animation-name: ShowAnimation
+        animation-duration: 150ms
+        animation-delay: 150ms
+        opacity: 0
+        animation-fill-mode: forwards
+        height: 100%
+        &:hover
+            border: 1px solid #333
+        a
+            opacity: 1
+
+    .card-image
+        object-fit: scale-down
+        max-height: 325px
+    .card-detail
+        padding: 10px
+        position: relative
+        .card-title
+            font-size: 20px
+            font-weight: 600
+            margin: 0px 0
+            padding: 6px 0px 32px 0
+            white-space: nowrap
+            text-overflow: ellipsis
+            overflow: hidden
+            font-weight: bold
+        .card-price
+            padding-top: 10px
+            padding-bottom: 10px
+            margin: 0px
+            font-weight: 500
+            font-size: 20px
+            span
+                font-size: 12px
+                line-height: 23px
+                vertical-align: text-top
+
+.card-view-button
+    position: absolute
+    bottom: 20px
+    right: 10px
+    border: solid 1px #333
+    padding: 10px 20px
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 30px
+    opacity: 0
+    p
+        padding-left: 8px
+
+    &:hover
+        cursor: pointer
+        color: #fff
+        background-color: #333
+        path
+            fill: #fff
+.card-view-icon
+    display: flex

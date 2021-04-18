@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 export const Icon = ({ source, height, width, fill, className, ...props }) => {
   return (
@@ -11,8 +11,8 @@ export const Icon = ({ source, height, width, fill, className, ...props }) => {
       dangerouslySetInnerHTML={{ __html: source }}
       {...props}
     />
-  )
-}
+  );
+};
 
 const IconSource = styled.div`
   line-height: 0;
@@ -23,4 +23,4 @@ const IconSource = styled.div`
   path {
     fill: ${(props) => props.fill};
   }
-`
+`;
